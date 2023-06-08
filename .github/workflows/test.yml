@@ -19,8 +19,11 @@ jobs:
           curl -JLO https://github.com/lijiejie/subDomainsBrute/archive/refs/tags/v1.4.zip
           unzip -j subDomainsBrute-1.4.zip
           sudo python -m pip install dnspython==2.2.1 async_timeout aiodns
-          sudo python ubDomainsBrute.py wfjt.com -w -t 2000 -p 10
+          cd ./subDomainsBrute-1.4
+          sudo python ./subDomainsBrute.py wfjt.com -w -t 2000 -p 10
           cat wfjt.txt
+          cd ../
+          pwd
       - name: install nmap 
         run: |
           sudo apt install nmap -y
