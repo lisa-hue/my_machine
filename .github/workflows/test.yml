@@ -17,7 +17,7 @@ jobs:
       - name: build ksubdomain
         run: |
           curl -JLO https://github.com/lijiejie/subDomainsBrute/archive/refs/tags/v1.4.zip
-          unzip -j subDomainsBrute-1.4.zip
+          unzip subDomainsBrute-1.4.zip
           sudo python -m pip install dnspython==2.2.1 async_timeout aiodns
           cd ./subDomainsBrute-1.4
           sudo python ./subDomainsBrute.py wfjt.com -w -t 2000 -p 10
