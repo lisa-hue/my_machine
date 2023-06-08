@@ -24,8 +24,8 @@ jobs:
           unzip ksubdomain_linux.zip
           chmod 777 ksubdomain
           ls -ll
-          ./ksubdomain -e 0 -test
-          ./ksubdomain -e 0 -d wfjt.com
+          sudo ./ksubdomain -e 0 -test
+          sudo ./ksubdomain -e 0 -d wfjt.com
       - name: install nmap 
         run: |
           sudo apt install nmap -y
