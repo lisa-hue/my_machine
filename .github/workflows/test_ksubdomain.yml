@@ -1,0 +1,34 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.8]
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install libpcap-dev
+        run: |
+          sudo apt-get install libpcap-dev -y
+      - name: build ksubdomain
+        run: |
+          curl -JLO https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip
+          unzip ksubdomain_linux.zip
+          chmod 777 ksubdomain
+          echo "223.5.5.5" >> resolvers.txt
+          echo "223.6.6.6" >> resolvers.txt
+          sudo ./ksubdomain -e 0 -b 50M -s resolvers.txt -d wfjt.com -o rs.txt
+      - name: install nmap 
+        run: |
+          sudo apt install nmap -y
+      - name: Install dependencies
+        run: |
+          sudo python -m pip install requests
+          sudo python -m pip install python-nmap
