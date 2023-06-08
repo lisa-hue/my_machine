@@ -14,13 +14,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: build subDomainsBrute
+      - name: build ksubdomain
         run: |
           curl -JLO https://github.com/lijiejie/subDomainsBrute/archive/refs/tags/v1.4.zip
           unzip subDomainsBrute-1.4.zip
           sudo python -m pip install dnspython==2.2.1 async_timeout
-          sudo python subDomainsBrute.py wfjt.com -w -t 2000 -p 10
-          cat wfjt.txt
+          sudo python ./subDomainsBrute-1.4/subDomainsBrute.py wfjt.com -w -t 2000 -p 10
+          cat ./subDomainsBrute-1.4/wfjt.txt
       - name: install nmap 
         run: |
           sudo apt install nmap -y
@@ -28,4 +28,3 @@ jobs:
         run: |
           sudo python -m pip install requests
           sudo python -m pip install python-nmap
-
