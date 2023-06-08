@@ -20,6 +20,7 @@ jobs:
       - name: build ksubdomain
         run: |
           curl -O https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip
+          ls -ll
           unzip ksubdomain_linux.zip
           chomod 777 ksubdomain
           ksubdomain -test
