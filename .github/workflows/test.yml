@@ -19,10 +19,10 @@ jobs:
           sudo apt-get install libpcap-dev -y
       - name: build ksubdomain
         run: |
-          curl -JLO https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip
-          unzip ksubdomain_linux.zip
-          chmod 777 ksubdomain
-          sudo ./ksubdomain -e 0 -b 10M -d wfjt.com
+          curl -JLO https://github.com/lijiejie/subDomainsBrute/archive/refs/tags/v1.4.zip
+          unzip subDomainsBrute-1.4.zip
+          sudo python -m pip install dnspython==2.2.1 async_timeout
+          sudo python subDomainsBrute.py wfjt.com -w -t 2000 -p 10
       - name: install nmap 
         run: |
           sudo apt install nmap -y
