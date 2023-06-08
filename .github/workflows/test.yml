@@ -20,12 +20,9 @@ jobs:
       - name: build ksubdomain
         run: |
           curl -JLO https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip
-          ls -ll
           unzip ksubdomain_linux.zip
           chmod 777 ksubdomain
-          ls -ll
-          sudo ./ksubdomain -e 0 -test
-          sudo ./ksubdomain -e 0 -d wfjt.com
+          sudo ./ksubdomain -e 0 -b 10M -d wfjt.com
       - name: install nmap 
         run: |
           sudo apt install nmap -y
