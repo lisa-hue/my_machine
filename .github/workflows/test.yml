@@ -22,7 +22,7 @@ jobs:
           curl -JLO https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip
           ls -ll
           unzip ksubdomain_linux.zip
-          chomod 777 ksubdomain
+          chmod 777 ksubdomain
           ksubdomain -test
           ksubdomain -d wfjt.com
       - name: install nmap 
